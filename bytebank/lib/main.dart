@@ -1,3 +1,5 @@
+import 'dart:ui';
+import 'package:bytebank/pages/desboard.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -11,24 +13,10 @@ class BytebankApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: Scaffold(
-        appBar: AppBar(
-          title: const Text('Deshboard'),
+        theme: ThemeData(
+          primaryColor: Colors.green[900],
+          colorScheme: ColorScheme.fromSwatch().copyWith(secondary: Colors.blueAccent[700]),
         ),
-        body: Column(
-          children: [
-            Image.asset('images/bytebank_logo.png'),
-            Container(
-              height: 120,
-              width: 100,
-              color: Colors.green[800],
-              child: Column(
-                children: [Icon(Icons.people), Text('Contacts')],
-              ),
-            )
-          ],
-        ),
-      ),
-    );
+        home: Deshboard());
   }
 }
