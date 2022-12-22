@@ -1,4 +1,5 @@
 import 'dart:ui';
+import 'package:bytebank/pages/contacts_list.dart';
 import 'package:bytebank/pages/desboard.dart';
 import 'package:flutter/material.dart';
 
@@ -17,6 +18,6 @@ class BytebankApp extends StatelessWidget {
           primaryColor: Colors.green[900],
           colorScheme: ColorScheme.fromSwatch().copyWith(secondary: Colors.blueAccent[700]),
         ),
-        home: Deshboard());
+        home: const Deshboard());
   }
 }
