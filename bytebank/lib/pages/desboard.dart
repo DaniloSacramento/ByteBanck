@@ -25,7 +25,7 @@ class Deshboard extends StatelessWidget {
                 color: Colors.green[800],
                 child: InkWell(
                   onTap: () {
-                    Navigator.of(context).push(MaterialPageRoute(builder: (context) => const ContactsList()));
+                    Navigator.of(context).push(MaterialPageRoute(builder: (context) => ContactsList()));
                   },
                   child: Container(
                     padding: const EdgeInsets.all(8),

@@ -1,3 +1,4 @@
+import 'package:bytebank/models/contact.dart';
 import 'package:flutter/material.dart';
 
 class ContactForm extends StatefulWidget {
@@ -9,7 +10,8 @@ class ContactForm extends StatefulWidget {
 
 class _ContactFormState extends State<ContactForm> {
   final _formKey = GlobalKey<FormState>();
-
+  final TextEditingController _nameController = TextEditingController();
+  final TextEditingController _accountNumberController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -26,18 +28,29 @@ class _ContactFormState extends State<ContactForm> {
               Padding(
                 padding: const EdgeInsets.only(top: 8),
                 child: TextFormField(
+                  controller: _nameController,
                   decoration: const InputDecoration(labelText: 'Full name'),
                   style: const TextStyle(fontSize: 24),
                 ),
               ),
               TextFormField(
+                controller: _accountNumberController,
                 decoration: const InputDecoration(labelText: 'Account number'),
                 style: const TextStyle(fontSize: 24),
                 keyboardType: TextInputType.number,
               ),
               Padding(
                 padding: const EdgeInsets.only(top: 8),
-                child: SizedBox(width: double.maxFinite, child: ElevatedButton(onPressed: () {}, child: const Text('Create'))),
+                child: SizedBox(
+                    width: double.maxFinite,
+                    child: ElevatedButton(
+                        onPressed: () {
+                          final String name = _nameController.text;
+                          final int? accountNumber = int.tryParse(_accountNumberController.text);
+                          final Contact newContact = Contact(0, name, accountNumber);
+                          Navigator.pop(context, newContact);
+                        },
+                        child: const Text('Create'))),
               )
             ],
           ),
