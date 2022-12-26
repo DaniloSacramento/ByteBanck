@@ -1,4 +1,5 @@
 import 'dart:ui';
+import 'package:bytebank/pages/contact_form.dart';
 import 'package:bytebank/pages/contacts_list.dart';
 import 'package:bytebank/pages/desboard.dart';
 import 'package:flutter/material.dart';
@@ -15,6 +16,7 @@ class BytebankApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
         theme: ThemeData(
+          primarySwatch: Colors.green,
           primaryColor: Colors.green[900],
           colorScheme: ColorScheme.fromSwatch().copyWith(secondary: Colors.blueAccent[700]),
         ),

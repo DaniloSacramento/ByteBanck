@@ -1,3 +1,4 @@
+import 'package:bytebank/pages/contact_form.dart';
 import 'package:flutter/material.dart';
 
 class ContactsList extends StatefulWidget {
@@ -32,8 +33,10 @@ class _ContactsListState extends State<ContactsList> {
         ],
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () {},
-        child: Icon(Icons.add),
+        onPressed: () {
+          Navigator.of(context).push(MaterialPageRoute(builder: (context) => const ContactForm()));
+        },
+        child: const Icon(Icons.add),
         backgroundColor: Colors.green[800],
       ),
     );
