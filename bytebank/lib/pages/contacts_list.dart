@@ -4,9 +4,14 @@ import 'package:bytebank/models/contact.dart';
 import 'package:bytebank/pages/contact_form.dart';
 import 'package:flutter/material.dart';
 
-class ContactsList extends StatelessWidget {
-  ContactsList({super.key});
+class ContactsList extends StatefulWidget {
+  const ContactsList({super.key});
 
+  @override
+  State<ContactsList> createState() => _ContactsListState();
+}
+
+class _ContactsListState extends State<ContactsList> {
   Key? key;
 
   @override
@@ -50,9 +55,11 @@ class ContactsList extends StatelessWidget {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          Navigator.of(context).push(MaterialPageRoute(builder: (context) => const ContactForm())).then(
-                (newContact) => debugPrint(newContact.toString()),
-              );
+          Navigator.of(context)
+              .push(MaterialPageRoute(
+                builder: (context) => const ContactForm(),
+              ))
+              .then((reload) => setState(() {}));
         },
         child: const Icon(Icons.add),
         backgroundColor: Colors.green[800],
@@ -61,7 +68,7 @@ class ContactsList extends StatelessWidget {
   }
 }
 
-class _ContactItem extends StatelessWidget {
+class _ContactItem extends StatefulWidget {
   const _ContactItem(
     Key? key,
     this.contact,
@@ -69,15 +76,20 @@ class _ContactItem extends StatelessWidget {
   final Contact contact;
 
   @override
+  State<_ContactItem> createState() => _ContactItemState();
+}
+
+class _ContactItemState extends State<_ContactItem> {
+  @override
   Widget build(BuildContext context) {
     return Card(
       child: ListTile(
         title: Text(
-          contact.name.toString(),
+          widget.contact.name.toString(),
           style: const TextStyle(fontSize: 24),
         ),
         subtitle: Text(
-          contact.accountNumber.toString(),
+          widget.contact.accountNumber.toString(),
           style: const TextStyle(fontSize: 16),
         ),
       ),
