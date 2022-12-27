@@ -16,17 +16,36 @@ class ContactsList extends StatelessWidget {
         backgroundColor: Colors.green[800],
         title: const Text('Contacts'),
       ),
-      body: FutureBuilder(
+      body: FutureBuilder<List<Contact>>(
+        initialData: const [],
         future: findAll(),
         builder: (context, snapshot) {
-          final List<Contact>? contacts = snapshot.data;
-          return ListView.builder(
-            itemBuilder: (context, index) {
-              final Contact contact = contacts![index];
-              return _ContactItem(key, contact);
-            },
-            itemCount: contacts?.length,
-          );
+          switch (snapshot.connectionState) {
+            case ConnectionState.none:
+              break;
+            case ConnectionState.waiting:
+              return Center(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: const [CircularProgressIndicator(), Text('Loading')],
+                ),
+              );
+              break;
+            case ConnectionState.active:
+              break;
+            case ConnectionState.done:
+              final List<Contact>? contacts = snapshot.data;
+              return ListView.builder(
+                itemBuilder: (context, index) {
+                  final Contact contact = contacts![index];
+                  return _ContactItem(key, contact);
+                },
+                itemCount: contacts?.length,
+              );
+              break;
+          }
+          return const Text('Unknown error');
         },
       ),
       floatingActionButton: FloatingActionButton(
