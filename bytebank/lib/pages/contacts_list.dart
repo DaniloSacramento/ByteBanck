@@ -1,5 +1,4 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
-import 'package:bytebank/database/app_database.dart';
 import 'package:bytebank/database/dao/contact_dao.dart';
 import 'package:bytebank/models/contact.dart';
 import 'package:bytebank/pages/contact_form.dart';
@@ -20,7 +19,7 @@ class _ContactsListState extends State<ContactsList> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.green[800],
-        title: const Text('Contacts'),
+        title: const Text('Transfer'),
       ),
       body: FutureBuilder<List<Contact>>(
         initialData: const [],
