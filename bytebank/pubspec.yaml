@@ -32,6 +32,7 @@ dependencies:
   flutter:
     sdk: flutter
   sqflite: ^2.2.2
+  http: ^0.13.5
   
 
 

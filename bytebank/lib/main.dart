@@ -1,5 +1,6 @@
 import 'dart:ui';
 import 'package:bytebank/database/app_database.dart';
+import 'package:bytebank/http/webclient.dart';
 import 'package:bytebank/models/contact.dart';
 import 'package:bytebank/pages/contact_form.dart';
 import 'package:bytebank/pages/contacts_list.dart';
@@ -8,6 +9,7 @@ import 'package:flutter/material.dart';
 
 void main() {
   runApp(const BytebankApp());
+  findAll();
 }
 
 class BytebankApp extends StatelessWidget {
