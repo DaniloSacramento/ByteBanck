@@ -6,8 +6,6 @@ import 'package:flutter/material.dart';
 
 void main() {
   runApp(const BytebankApp());
-  save(Transaction(200.0, Contact(0, 'Julia', 2000))).then((transaction) => print(transaction));
-  findAll().then((transactions) => print('new transactions $transactions'));
 }
 
 class BytebankApp extends StatelessWidget {
@@ -18,10 +16,10 @@ class BytebankApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
         theme: ThemeData(
-          primarySwatch: Colors.green,
-          primaryColor: Colors.green[900],
-          colorScheme: ColorScheme.fromSwatch().copyWith(secondary: Colors.blueAccent[700]),
-        ),
+            primarySwatch: Colors.green,
+            primaryColor: Colors.green[900],
+            colorScheme: ColorScheme.fromSwatch().copyWith(secondary: Colors.blueAccent[700]),
+            elevatedButtonTheme: ElevatedButtonThemeData(style: TextButton.styleFrom(backgroundColor: Colors.green[800]))),
         home: const Deshboard());
   }
 }
